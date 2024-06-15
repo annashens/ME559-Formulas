@@ -1,0 +1,164 @@
+%------------ Header ----------------
+\sectiontitle{Review}
+\header{Notation}
+Given matrix $A$ with $n$ columns, and $m$ rows
+\[A=
+\begin{blockarray}{ccccc}
+a_{ij} & 1 & 2 & \dots  & n \\
+\begin{block}{c[cccc]}
+  1 & a_{11}  & a_{12}  & \dots & a_{1n}  \\
+  2 & a_{21}  & a_{22}  & \dots & a_{2n}  \\
+  3 & a_{31}  & a_{32}  & \dots & a_{3n}  \\
+  \vdots & \vdots & \vdots & \ddots & \vdots \\
+  m & a_{m1}  & a_{m2}  & \dots & a_{mn}  \\
+\end{block}
+\end{blockarray}
+ \]
+\\
+\header{Transpose}
+\[A=
+\begin{bmatrix}
+   a_{11}  & a_{12}  & \dots & a_{1n}  \\
+  a_{21}  & a_{22}  & \dots & a_{2n}  \\
+   a_{31}  & a_{32}  & \dots & a_{3n}  \\
+   \vdots & \vdots & \ddots & \vdots \\
+   a_{m1}  & a_{m2}  & \dots & a_{mn}  \\
+\end{bmatrix}
+\longrightarrow A^\intercal = 
+\begin{bmatrix}
+   a_{11}  & a_{12}  & \dots & a_{n1}  \\
+  a_{12}  & a_{22}  & \dots & a_{n2}  \\
+   a_{13}  & a_{23}  & \dots & a_{n3}  \\
+   \vdots & \vdots & \ddots & \vdots \\
+   a_{1m}  & a_{2m}  & \dots & a_{nm}  \\
+\end{bmatrix}
+ \]
+\[
+a=
+\begin{bmatrix}
+    a & b & c \\
+    d & e & f
+\end{bmatrix}_{2\times 3}
+\longrightarrow A^\intercal = 
+\begin{bmatrix}
+    a & d \\
+    b & e \\
+    c & f 
+\end{bmatrix}_{2\times 3}
+\]
+
+\scriptsize
+\begin{align*}
+    \begin{bmatrix}
+        a&b&c\\
+        d&e&f
+    \end{bmatrix}^T
+    =\begin{bmatrix}
+        a&d\\
+        b&e\\
+        c&f
+    \end{bmatrix}
+\end{align*}
+\header{Matrix Multiplication}
+\tiny
+\[
+     \begin{bmatrix}
+         a_{11} & a_{12} & \cdots & a_{1n}\\
+         a_{21} & a_{22} & \cdots & a_{2n}\\ 
+         \vdots & \vdots & \ddots & \vdots\\ 
+         a_{m1} & a_{m2} & \cdots & a_{mn} 
+     \end{bmatrix}
+     \times
+     \begin{bmatrix}
+         b_{11} & b_{12} & \cdots & b_{1p}\\
+         b_{21} & b_{22} & \cdots & b_{2p}\\ 
+         \vdots & \vdots & \ddots & \vdots\\ 
+         b_{n1} & b_{n2} & \cdots & b_{np} 
+     \end{bmatrix}
+      =
+     \begin{bmatrix}
+         c_{11} & c_{12} & \cdots & c_{1p}\\
+         c_{21} & c_{22} & \cdots & c_{2p}\\ 
+         \vdots & \vdots & \ddots & \vdots\\ 
+         c_{m1} & c_{m2} & \cdots & c_{mp} 
+     \end{bmatrix}
+\]
+\scriptsize
+\begin{equation*}
+     c_{ij}= a_{i1} b_{1j} + a_{i2} b_{2j} +\cdots+ a_{in} + b_{nj} = \sum_{k=1}^n a_{ik}b_{kj} 
+\end{equation*}
+
+
+\header{Determinant}
+\begin{align*}
+    \det \mtrx A = \sum_{i=1}^k a_{ij} C_{ij}\\
+    C_{ij}=(-1)^{i+j}M_{ij}
+\end{align*}
+\header{Inverse Matrix}
+\begin{align*}
+    \textbf{A}^{-1}= \frac{1}{\det \mtrx A}\adj \mtrx A
+\end{align*}
+For $2\times 2$ matrix:
+\begin{align*}
+    \begin{bmatrix}a&b\\c&d\end{bmatrix}^{-1} = \dfrac1{ad-bc}{\begin{bmatrix}d&-b\\-c&a\end{bmatrix}}
+\end{align*}
+
+\header{Adjugate Matrix}
+\tiny
+\begin{equation*}
+\mathop{\mathbf{adj}}
+\begin{pmatrix}
+            a_{11} & a_{12} & a_{13} \\
+            a_{12} & a_{22} & a_{23} \\
+            a_{31} & a_{32} & a_{33}
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            +
+            \begin{vmatrix}
+                a_{22} & a_{23} \\
+                a_{32} & a_{33}
+            \end{vmatrix} &
+            -
+            \begin{vmatrix}
+                a_{12} & a_{13} \\
+                a_{32} & a_{33}
+            \end{vmatrix} &
+            +
+            \begin{vmatrix}
+                a_{12} & a_{13} \\
+                a_{22} & a_{23} \\
+            \end{vmatrix} \\[1.5em]
+            -
+            \begin{vmatrix}
+                a_{21} & a_{23} \\
+                a_{31} & a_{33}
+            \end{vmatrix} &
+            +
+            \begin{vmatrix}
+                a_{11} & a_{13} \\
+                a_{31} & a_{33}
+            \end{vmatrix}&
+            -
+            \begin{vmatrix}
+                a_{11} &  a_{13} \\
+                a_{21} &  a_{23}
+            \end{vmatrix} \\[1.5em]
+            +
+            \begin{vmatrix}
+                a_{21} & a_{22} \\
+                a_{31} & a_{32}
+            \end{vmatrix} &
+            -
+            \begin{vmatrix}
+            a_{11} & a_{12} \\
+            a_{21} & a_{22}
+            \end{vmatrix} &
+            +
+            \begin{vmatrix}
+                a_{11} & a_{12} \\
+                a_{21} & a_{22}
+            \end{vmatrix}
+        \end{pmatrix}
+\end{equation*}
+\scriptsize
